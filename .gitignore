@@ -20,11 +20,11 @@ files/*
 /coverage/
 /spec/tmp
 
-/config/database.yml
-/config/secrets.yml
-/config/environment.rb
-/config/configuration.yml
-/config/shards.yml
+#/config/database.yml
+#/config/secrets.yml
+#/config/environment.rb
+#/config/configuration.yml
+#/config/shards.yml
 
 # ide
 /.idea/*
