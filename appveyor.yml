@@ -7,11 +7,15 @@ install:
   - ruby --version
   - gem --version
   - git --version
-  - hg  --version
+  - hg --version
 
 build: off
 
 test_script:
+  - set -x
+  - gem install bundler
+  - bundle update --bundler --jobs 8
+  - bundle update --all --jobs 12
   - bundle install --without rmagick
   - set SCMS=mercurial
   - set RUN_ON_NOT_OFFICIAL=
@@ -21,6 +25,7 @@ test_script:
   - bundle install
   - bundle exec rake ci:setup
   - bundle exec rake test
+  - set +x
 
 environment:
   global:
@@ -34,3 +39,5 @@ environment:
     - ruby_version: "21-x64"
     - ruby_version: "22"
     - ruby_version: "22-x64"
+    - ruby_version: "23"
+    - ruby_version: "23-x64"
